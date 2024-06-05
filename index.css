@@ -31,10 +31,6 @@ body {
     src: url('Roboto/Roboto-Regular.ttf');
    }
 @font-face {
-    font-family: robotoLight;
-    src: url('Roboto/Roboto-Light.ttf');
-   }
-@font-face {
     font-family: robotoMedium;
     src: url('Roboto/Roboto-Medium.ttf');
    }
@@ -58,13 +54,14 @@ h1 {
     border-radius: 10px;
     font-family: robotoRegular;
     font-size: 25px;
+    cursor: pointer;
 }
 .converter_menu {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 10px;
     width: 100%;
-    margin-top: 20px;
+    margin-top: 30px;
 }
 
 

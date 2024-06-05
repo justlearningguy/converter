@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Unit Converter</title>
     <link rel="stylesheet" href="index.css">
 </head>
@@ -22,7 +22,7 @@
                 document.querySelector('body').classList.toggle('darkstyle');}
     </script>
     <div class="main">
-        <div style="display: flex; align-items: center;">
+        <div style="display: flex; align-items: center; width: 100%">
             <h1>Unit Converter</h1>
             <svg  onclick="info()" id="info_fixed" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"  stroke-width="1" stroke-linecap="round" stroke-linejoin="miter">
 
@@ -40,6 +40,8 @@
         </div>
         <div class="converter_menu">
             <div id="length" class="converter_menu_item">Length</div>
+            <div id="speed" class="converter_menu_item">Speed</div>
+            <div id="temperature" class="converter_menu_item">Temperature</div>
         </div>
         <div class="modal_box_bg">
             <div class="modal_box_focus">
