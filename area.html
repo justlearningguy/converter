@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Length Converter</title>
+    <title>Area Converter</title>
     <link rel="stylesheet" href="convertscreen.css">
     <link rel="icon" type="image/svg+xml" href="favicon/favicon.svg">
     <link rel="icon" type="image/png" href="favicon/favicon.png">
@@ -16,12 +16,12 @@
     <div class="main">
         <div class="top_h">
             <svg  class="back_arrow" onclick="tomainscreen()" viewBox="0 0 448 512"><path  d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg>
-            <h1>Length</h1>
+            <h1>Area</h1>
         </div>
         <div class="convertOptionDiv">
             <span class="convertDirectionTip">From:</span>
             <div class="convertOptionRow">
-                <span class="convertOptionH" id="optionhone">Meter</span>
+                <span class="convertOptionH" id="optionhone">Square meter</span>
                 <span id='optionone' class="convertOptionValueActive">0</span>
             </div>  
         </div>
@@ -32,7 +32,7 @@
         <div class="convertOptionDiv">
             <span class="convertDirectionTip">To:</span>
             <div class="convertOptionRow">
-                <span class="convertOptionH" id="optionhtwo">Centimeter</span>
+                <span class="convertOptionH" id="optionhtwo">Square centimeter</span>
                 <span id='optiontwo' class="convertOptionValuePassive">0</span>
             </div>
         </div>
@@ -55,19 +55,16 @@
     </div>
     <div class="bgOfTypeMenu">
     <div class="chooseTypeMenu">
-        <div class="type">Kilometer</div>
-        <div class="type">Meter</div>
-        <div class="type">Decimeter</div>
-        <div class="type">Centimeter</div>
-        <div class="type">Millimeter</div>
-        <div class="type">Micrometer</div>
-        <div class="type">Nanometer</div>
-        <div class="type">Mile</div>
-        <div class="type">Foot</div>
-        <div class="type">Inch</div>
+        <div class="type">Square kilometer</div>
+        <div class="type">Square meter</div>
+        <div class="type">Square decimeter</div>
+        <div class="type">Square centimeter</div>
+        <div class="type">Square millimeter</div>
+        <div class="type">Are</div>
+        <div class="type">Hectare</div>  
     </div>
     </div>
-    <script src="length.js"></script>
+    <script src="area.js"></script>
     <script src="same.js"></script>
 </body>
 </html>

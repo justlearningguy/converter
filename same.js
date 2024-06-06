@@ -4,6 +4,7 @@ const optionone = document.getElementById('optionone');
 const optiontwo = document.getElementById('optiontwo');
 const removeCharBtn = document.getElementById('removeCharBtn');
 const clearBtn = document.getElementById('clearBtn');
+const plusMinus = document.getElementById('plusMinus');
 const optionhone = document.getElementById('optionhone');
 const optionhtwo = document.getElementById('optionhtwo');
 const chooseTypeMenu = document.querySelector('.bgOfTypeMenu');
@@ -66,6 +67,9 @@ removeCharBtn.addEventListener('click', function() {
         if(optionone.innerText.length === 1) {
             optionone.innerText = '0';
         }
+        else if(optionone.innerText.includes('-') && optionone.innerText.length === 2) {
+            optionone.innerText = '0';
+        }
         else {
             optionone.innerText = optionone.innerText.slice(0,-1);
         }
@@ -74,6 +78,18 @@ removeCharBtn.addEventListener('click', function() {
 clearBtn.addEventListener('click', function() {
         optionone.innerText = '0';
         count();
+})
+plusMinus.addEventListener('click', function() {
+    let tempString = optionone.innerText;
+    tempString = tempString.split('');
+    if(tempString[0] != '-') {
+        tempString.unshift('-')
+    }
+    else {
+        tempString[0] = '';
+    }
+    optionone.innerText = tempString.join('');
+    count();
 })
 point.addEventListener('click', function() {
     if(optionone.innerText.includes('.') || optionone.innerText.length >= 15) {
@@ -89,6 +105,9 @@ for(let i = 0; i<buttons.length; i++) {
             }
             else if(optionone.innerText.length >= 15) {
 
+            }
+            else if(optionone.innerText==="-0") {
+                optionone.innerText = optionone.innerText.replace('0', buttons[i].innerText)
             }
             else {
                 optionone.innerText = optionone.innerText + buttons[i].innerText; 
