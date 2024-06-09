@@ -1,5 +1,7 @@
+let valutes1 = 'USD';
+let valutes2;
+let valutes;
 const buttons = document.querySelectorAll('.numberButton');
-const types = document.querySelectorAll('.type');
 const optionone = document.getElementById('optionone');
 const optiontwo = document.getElementById('optiontwo');
 const removeCharBtn = document.getElementById('removeCharBtn');
@@ -11,23 +13,36 @@ const chooseTypeMenu = document.querySelector('.bgOfTypeMenu');
 const point = document.getElementById('point');
 const swap = document.querySelector('.reverseSvg');
 let option = 1;
-
-//open choose type menu
-function openChooseMenu() {
-    chooseTypeMenu.style.display = 'flex';
-    setTimeout(function() {
-        chooseTypeMenu.style.opacity = '1';
-    }, 0);
+async function f() {
+    let a = await fetch('https://www.cbr-xml-daily.ru/daily_json.js');
+    a = await a.json();
+    a = a.Valute;
+    let eKeys = Object.keys(a);
+    for(let i=0; i< eKeys.length;i++) {
+        let newDiv = window.document.createElement('div');
+        newDiv.className = 'type';
+        newDiv.innerText = a[eKeys[i]].Name;
+        newDiv.id = eKeys[i];
+        document.querySelector('.chooseTypeMenu').appendChild(newDiv);
+    }
+    const types = document.querySelectorAll('.type');
+        for(let i = 0; i<types.length; i++) {
+            types[i].addEventListener('click', function() {
+                if(option==1) {
+                    optionhone.innerText = `${types[i].textContent}`;
+                    valutes1 = types[i].id;
+                }
+                else {
+                    optionhtwo.innerText = `${types[i].textContent}`; 
+                    valutes2 = types[i].id;   
+                }    
+                count();
+                closeChooseMenu();                                                   
+        })}
+        valutes = a;
+        count();
 }
-swap.onclick = function() {
-    let swapHone = optionhone.innerText;
-    let swapHtwo = optionhtwo.innerText;
-    let swapValueOne = optiontwo.innerText;
-    optionhone.innerText = swapHtwo;
-    optionhtwo.innerText = swapHone;
-    optionone.innerText = swapValueOne;
-    count();
-}
+f();
 function adaptiveFixed(num, needNonZero) {
     let res = Math.trunc(num);
     let frac = Math.abs(num - res);
@@ -44,6 +59,40 @@ function adaptiveFixed(num, needNonZero) {
         numNonZero++;
     }
     return res;
+  }
+function count() {
+    if(optionhone.innerText == optionhtwo.innerText) {
+        optiontwo.innerText = optionone.innerText;
+    }
+    else if(optionhone.innerText == 'Российский рубль') {
+        let a = Number(optionone.innerText)/(Number(valutes[valutes2].Value)/Number(valutes[valutes2].Nominal));
+        optiontwo.innerText = adaptiveFixed(a, 2);
+    }
+    else if(optionhtwo.innerText == 'Российский рубль') {
+        let a = Number(optionone.innerText)*(Number(valutes[valutes1].Value)/Number(valutes[valutes1].Nominal));
+        optiontwo.innerText = adaptiveFixed(a, 2);
+    }
+    else {
+        let a = Number(optionone.innerText)*(Number(valutes[valutes1].Value)/Number(valutes[valutes1].Nominal))/(Number(valutes[valutes2].Value)/Number(valutes[valutes2].Nominal));
+        optiontwo.innerText = adaptiveFixed(a, 2);
+    }
+}
+
+//open choose type menu
+function openChooseMenu() {
+    chooseTypeMenu.style.display = 'flex';
+    setTimeout(function() {
+        chooseTypeMenu.style.opacity = '1';
+    }, 0);
+}
+swap.onclick = function() {
+    let swapHone = optionhone.innerText;
+    let swapHtwo = optionhtwo.innerText;
+    optionhone.innerText = swapHtwo;
+    optionhtwo.innerText = swapHone;
+    optionone.innerText = optiontwo.innerText; 
+    [valutes1,valutes2] = [valutes2,valutes1]
+    count();
 }
 function closeChooseMenu() {
   chooseTypeMenu.style.opacity = '0';
@@ -61,17 +110,6 @@ chooseTypeMenu.addEventListener( 'click', (e) => {
 function tomainscreen() {
     window.location.href = 'index.html';
 }
-for(let i = 0; i<types.length; i++) {
-    types[i].addEventListener('click', function() {
-        if(option==1) {
-            optionhone.innerText = `${types[i].textContent}`;
-        }
-        else {
-            optionhtwo.innerText = `${types[i].textContent}`;    
-        }    
-        count();
-        closeChooseMenu();                                                   
-})}
 optionhone.addEventListener('click', function() {
     option = 1;
     openChooseMenu();
@@ -131,4 +169,3 @@ for(let i = 0; i<buttons.length; i++) {
             }
             count();
     })} 
-count();

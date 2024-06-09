@@ -134,7 +134,9 @@ h1 {
     background: var(--color-bg-secondary);
     width: 95%;
     max-width: 700px;
+    max-height: 70vh;
     border-radius: 10px;
+    overflow-y: scroll;
 }
 .type {
     color: var(--color-primary);
@@ -145,6 +147,7 @@ h1 {
     display: flex;
     justify-content: center;
     cursor: pointer;
+    text-align: center;
 }
 .chooseTypeMenu :last-child {
     border-bottom: none;
