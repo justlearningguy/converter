@@ -7,8 +7,8 @@
     --color-accent: #0088ff;
 }
 .darkstyle {
-    --color-bg-primary: #161617;
-    --color-bg-secondary: #212224;
+    --color-bg-primary: #17171C;
+    --color-bg-secondary: #333333;
     --color-primary: #ffffff;
     --color-secondary: #AEAEAE;
     --color-thirdly: #A2A2A2;
@@ -39,6 +39,7 @@ body {
     flex-direction: column;
     user-select: none;
     width: 100%;
+    max-width: 700px;
 }
 h1 {
     color: var(--color-primary);
@@ -48,13 +49,14 @@ h1 {
     font-weight:  normal;
 }
 .converter_menu_item {
-    background: var(--color-bg-secondary);
     color: var(--color-primary);
-    padding: 15px;
-    border-radius: 10px;
     font-family: robotoRegular;
     font-size: 25px;
     cursor: pointer;
+    padding: 10px;
+}
+.converter_menu_item:hover {
+    color: var(--color-accent)
 }
 .converter_menu {
     display: flex;
@@ -81,15 +83,15 @@ h1 {
     background: rgba(0,0,0,0.5);
     z-index: 999;
     display: none;
-    justify-content: flex-end;
+    justify-content: center;
+    align-items: center;
     user-select: none;
     opacity: 0;
     transition: opacity 0.3s;
 }
 .modal_box_focus {
-    height: fit-content;
-    margin-right: 10px;
-    margin-top: 55px;
+    width: 60%;
+    max-width: 420px;
     background: var(--color-bg-secondary);
     border-radius: 10px;
     padding: 15px;
