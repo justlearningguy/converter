@@ -2,7 +2,8 @@
 const vars = document.querySelectorAll('.converter_menu_item');
 for(var i in vars) {
     vars[i].onclick = function() {
-        window.location = `${this.id}.html`;
+        localStorage.setItem('unit_type', this.id);
+        window.location = `convertscreen.html`;
     }
 }
 
@@ -27,3 +28,6 @@ document.querySelector('.modal_box_bg').addEventListener( 'click', (e) => {
 		infoBack()
 	}
 })
+function averageGrade() {
+  window.location = `averagegrade.html`;
+}

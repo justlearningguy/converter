@@ -1,0 +1,122 @@
+.toprow {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+#gradeField {
+  
+    color: var(--color-primary);
+    font-size: 20px;  
+    width: 70px;
+    height: 25px;
+    text-align: center;
+    font-family: robotoRegular;
+    border-radius: 15px;
+    border: 1px solid var(--color-bg-secondary);
+    padding: 10px;
+    outline: none;
+    background: none;
+}
+#weightField {
+    margin-left: 10px;
+    color: var(--color-primary);
+    font-size: 20px;  
+    width: 70px;
+    height: 25px;
+    text-align: center;
+    font-family: robotoRegular;
+    border-radius: 15px;
+    border: 1px solid var(--color-bg-secondary);
+    padding: 10px;
+    outline: none;
+    background: none;
+}
+#pushButton {
+    margin-left: 10px;
+    color: white;
+    font-size: 18px; 
+    font-weight: bold; 
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: robotoRegular;
+    border-radius: 15px;
+    padding: 10px;
+    height: 25px;
+    width: 25px;
+    outline: none;
+    background: var(--color-accent);
+}
+#pushButton:active {
+    filter: brightness(1.1);
+}
+#clearButton {
+    margin-left: 10px;
+    color: white;
+    font-size: 18px; 
+    font-weight: bold; 
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: robotoRegular;
+    border-radius: 15px;
+    padding: 10px;
+    height: 25px;
+    width: 25px;
+    outline: none;
+    background: var(--color-accent);
+}
+#clearButton:active {
+    filter: brightness(1.1);
+}
+#averageH {
+    color: var(--color-primary);
+    font-family: robotoRegular;
+    font-size: 20px;
+}
+#averageOutput {
+    color: var(--color-accent);
+    font-family: robotoMedium;
+    font-size: 24px; 
+    margin-left: 10px;
+}
+.gradesListDiv {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 30px;
+    gap: 15px;
+}
+.gradeListElem {
+    display: flex;
+    flex-direction: column;
+}
+.gradeListElemGrade {
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: robotoRegular;
+    color: white;
+    background: var(--color-accent);
+    width: 40px;
+    height: 40px;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+}
+.gradeListElemWeight {
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: robotoRegular;
+    color: var(--color-primary);
+    border-left: 1px solid var(--color-bg-secondary);
+    border-right: 1px solid var(--color-bg-secondary);
+    border-bottom: 1px solid var(--color-bg-secondary);
+    width: 38px;
+    height: 40px;
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+}

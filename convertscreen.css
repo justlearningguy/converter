@@ -16,6 +16,12 @@
         background-image: url('images/unchecked-dark.svg');
     }
 }
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
 body {
     background: var(--color-bg-primary);
     display: flex;
@@ -73,63 +79,37 @@ h1 {
 }
 .convertOptionRow {
     display: flex;
+    align-items: center;
+    gap: 5px;
 }
 .convertDirectionTip {
     color: var(--color-thirdly);
     font-family: robotoRegular;
     font-size: 15px;
-    margin-bottom: 5px;
 }
 .convertOptionValueActive {
     color: var(--color-accent);
     font-size: 20px;  
-    margin-left: auto;
+    width: 100%;
     font-family: robotoRegular;
+    border-radius: 15px;
+    border: 1px solid var(--color-bg-secondary);
+    padding: 10px;
+    outline: none;
+    background: none;
+    margin-top: 10px;
 }
 .convertOptionValuePassive {
     color: var(--color-primary);
     font-size: 20px;  
-    margin-left: auto;
-    font-family: robotoRegular;
-}
-.gridKeyboard {
-    display: grid;
     width: 100%;
-    max-width: 700px;
-    grid-template-columns: repeat(4,1fr);
-    grid-template-rows: repeat(4,1fr);
-    gap: 10px;
-    position: fixed;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-}
-#removeCharBtn {
-    grid-row: 1/3;
-    grid-column: 4/5;
-    background: var(--color-accent);
-    color: white;
-}
-#clearBtn {
-    grid-row: 3/5;
-    grid-column: 4/5;
-    background: var(--color-accent);
-    color: white;
-}
-.keyboardButton {
-    padding: 15px;
-    border-radius: 10px;
-    color: var(--color-primary);
-    background: var(--color-bg-secondary);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: robotoMedium;
-    font-size: 20px;
-    cursor: pointer;
-}
-.keyboardButton:active {
-    filter: brightness(1.2);
+    font-family: robotoRegular;
+    border-radius: 15px;
+    border: 1px solid var(--color-bg-secondary);
+    padding: 10px;
+    margin-top: 10px;
+    background: none;
+    outline: none;
 }
 .chooseTypeMenu {
     display: flex;
