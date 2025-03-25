@@ -1,34 +1,24 @@
 function count() {
-        if(optionhone.innerText == optionhtwo.innerText) {
-            optiontwo.value = optionone.value;
+    const conversions = {
+        'Meter/second': {
+            'Kilometer/hour': mps => mps * 3.6,
+            'Mile/hour': mps => mps * 2.2369362921
+        },
+        'Kilometer/hour': {
+            'Meter/second': kmh => kmh * 0.2777777778,
+            'Mile/hour': kmh => kmh * 0.6213711922
+        },
+        'Mile/hour': {
+            'Meter/second': mph => mph * 0.44704,
+            'Kilometer/hour': mph => mph * 1.609344
         }
-        if(optionhone.innerText == 'Meter/second'){
-            switch(optionhtwo.innerText) {
-                case 'Kilometer/hour':
-                    optiontwo.value = adaptiveFixed(Number(optionone.value)*3.6,3);
-                    break;
-                case 'Mile/hour':
-                    optiontwo.value = adaptiveFixed(Number(optionone.value)*2.2369362921,3);
-            }}
-        else if(optionhone.innerText == 'Kilometer/hour') {
-            switch(optionhtwo.innerText) {
-                case 'Meter/second':
-                    optiontwo.value = adaptiveFixed(Number(optionone.value)*0.2777777778,3);
-                    break;
-                case 'Mile/hour':
-                    optiontwo.value = adaptiveFixed(Number(optionone.value)*0.6213711922,3);
-            }
-        }
-        else {
-            switch(optionhtwo.innerText) {
-                case 'Meter/second':
-                    optiontwo.value = adaptiveFixed(Number(optionone.value)*0.44704,3);
-                    break;
-                case 'Kilometer/hour':
-                    optiontwo.value = adaptiveFixed(Number(optionone.value)*1.609344,3);
-            } 
-        }
+    };
+    const unitFrom = optionhone.innerText;
+    const unitTo = optionhtwo.innerText;
+    const inputValue = Number(optionone.value);
+    if (unitFrom === unitTo) {
+        optiontwo.value = inputValue;
+    } else {
+        optiontwo.value = conversions[unitFrom][unitTo](inputValue);
+    }
 }
-
-
-

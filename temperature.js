@@ -1,34 +1,24 @@
 function count() {
-    if(optionhone.innerText == optionhtwo.innerText) {
-        optiontwo.value = optionone.value;
-    }
-    if(optionhone.innerText == 'Kelvin'){
-        switch(optionhtwo.innerText) {
-            case 'Celsius':
-                optiontwo.value = adaptiveFixed(Number(optionone.value) - 273.15,3);
-                break;
-            case 'Fahrenheit':
-                optiontwo.value = adaptiveFixed(Number(optionone.value)*1.8 - 459.67,3);
-        }}
-    else if(optionhone.innerText == 'Celsius') {
-        switch(optionhtwo.innerText) {
-            case 'Kelvin':
-                optiontwo.value = adaptiveFixed(Number(optionone.value) + 273.15,3);
-                break;
-            case 'Fahrenheit':
-                optiontwo.value = adaptiveFixed(Number(optionone.value)*1.8 + 32,3);
+    const conversions = {
+        Kelvin: {
+            Celsius: k => k - 273.15,
+            Fahrenheit: k => k * 1.8 - 459.67
+        },
+        Celsius: {
+            Kelvin: c => c + 273.15,
+            Fahrenheit: c => c * 1.8 + 32
+        },
+        Fahrenheit: {
+            Kelvin: f => (f + 459.67) * 5/9,
+            Celsius: f => (f - 32) * 5/9
         }
-    }
-    else {
-        switch(optionhtwo.innerText) {
-            case 'Kelvin':
-                optiontwo.value = adaptiveFixed((Number(optionone.value)+459.67)*5/9,3);
-                break;
-            case 'Celsius':
-                optiontwo.value = adaptiveFixed((Number(optionone.value)-32)*5/9,3);
-        } 
+    };
+    const unitFrom = optionhone.innerText;
+    const unitTo = optionhtwo.innerText;
+    const inputValue = Number(optionone.value);
+    if (unitFrom === unitTo) {
+        optiontwo.value = inputValue;
+    } else {
+        optiontwo.value = conversions[unitFrom][unitTo](inputValue);
     }
 }
-
-
-

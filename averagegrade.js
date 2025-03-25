@@ -1,19 +1,16 @@
-const gradeField = document.getElementById('gradeField');
-const weightField = document.getElementById('weightField');
-const averageOutput = document.getElementById('averageOutput');
-const pushBtn = document.getElementById('pushButton');
-const clearBtn = document.getElementById('clearButton');
-const chooseTypeMenu = document.querySelector('.chooseTypeMenu');
-const chooseTypeMenuBg = document.querySelector('.bgOfTypeMenu');
-let Grades = [];
-let Weights = [];
+gradeField = document.getElementById('gradeField');
+weightField = document.getElementById('weightField');
+averageOutput = document.getElementById('averageOutput');
+pushBtn = document.getElementById('pushButton');
+clearBtn = document.getElementById('clearButton');
+Grades = [];
+Weights = [];
+sumOfgrades = 0;
+sumOfweights = 0;
 if(JSON.parse(localStorage.getItem('gradesSave'))!=null) {
   Grades = JSON.parse(localStorage.getItem('gradesSave'));
   Weights = JSON.parse(localStorage.getItem('weightsSave'));
 }
-
-let sumOfgrades = 0;
-let sumOfweights = 0;
 gradeField.oninput = function() {
   if(gradeField.value.length > 2) {
     gradeField.value = gradeField.value.slice(0, -1);
@@ -23,29 +20,6 @@ weightField.oninput = function() {
   if(weightField.value.length > 2) {
     weightField.value = weightField.value.slice(0, -1);
 }
-}
-function openChooseMenu() {
-    chooseTypeMenuBg.style.display = 'flex';
-    setTimeout(function() {
-        chooseTypeMenuBg.style.opacity = '1';
-    }, 0);
-}
-function closeChooseMenu() {
-  chooseTypeMenuBg.style.opacity = '0';
-  setTimeout(function() {
-    chooseTypeMenuBg.style.display = 'none';
-  }, 300);
-}
-chooseTypeMenuBg.addEventListener( 'click', (e) => {
-	const withinBoundaries = e.composedPath().includes(document.querySelector(".chooseTypeMenuBg"));
-	if ( ! withinBoundaries ) {
-		closeChooseMenu();
-	}
-})
-//returning to main page
-function tomainscreen() {
-    window.location.href = 'index.html';
-    localStorage.removeItem('unit_type');
 }
 clearBtn.onclick = function() {
   Grades = [];
@@ -162,5 +136,3 @@ if(sumOfweights>0) {
   averageOutput.textContent = 0;
 }
 gradeField.focus();
-
-

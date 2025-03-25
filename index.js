@@ -3,7 +3,10 @@ const vars = document.querySelectorAll('.converter_menu_item');
 for(var i in vars) {
     vars[i].onclick = function() {
         localStorage.setItem('unit_type', this.id);
-        window.location = `convertscreen.html`;
+        if (window.innerWidth <700) {
+          document.querySelector('.main').style.display = 'none';
+        }
+        menu_maker()
     }
 }
 
@@ -28,6 +31,16 @@ document.querySelector('.modal_box_bg').addEventListener( 'click', (e) => {
 		infoBack()
 	}
 })
-function averageGrade() {
-  window.location = `averagegrade.html`;
+function changeTheme() {
+  document.querySelector('body').classList.toggle('darkstyle');
+  window.localStorage.setItem('theme', document.querySelector('body').classList)
+  if(document.querySelector('body').classList == 'darkstyle') {
+      document.querySelector('.theme_change_btn').innerText = 'DARK';    
+  }
+  else {
+      document.querySelector('.theme_change_btn').innerText = 'LIGHT';
+  }}
+
+if(window.localStorage.getItem('theme') === 'darkstyle') {
+    changeTheme();
 }
