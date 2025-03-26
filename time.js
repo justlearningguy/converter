@@ -8,12 +8,12 @@ function count() {
         'Week': 1/168,
         'Year': 1/8766
     };
-    const unit1 = optionhone.innerText;
-    const unit2 = optionhtwo.innerText;
-    const value1 = Number(optionone.value);
-    if (unit1 === unit2) {
-        optiontwo.value = optionone.value;
+    const unitFrom = optionhone.classList[1].substr(0, optionhone.classList[1].length-5);
+    const unitTo = optionhtwo.classList[1].substr(0, optionhtwo.classList[1].length-5);
+    const inputValue = Number(optionone.value);
+    if (unitFrom === unitTo) {
+        optiontwo.value = inputValue;
     } else {
-        optiontwo.value = value1 * (units[unit2] / units[unit1]);
+        optiontwo.value = inputValue * (units[unitTo] / units[unitFrom]);
     }
 }

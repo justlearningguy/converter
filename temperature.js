@@ -13,8 +13,8 @@ function count() {
             Celsius: f => (f - 32) * 5/9
         }
     };
-    const unitFrom = optionhone.innerText;
-    const unitTo = optionhtwo.innerText;
+    const unitFrom = optionhone.classList[1].substr(0, optionhone.classList[1].length-5);
+    const unitTo = optionhtwo.classList[1].substr(0, optionhtwo.classList[1].length-5);
     const inputValue = Number(optionone.value);
     if (unitFrom === unitTo) {
         optiontwo.value = inputValue;

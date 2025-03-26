@@ -123,7 +123,7 @@ const langHeaders = {
         'ru': 'Квадратный метр',
         'en': 'Square meter'
     },
-    'Squardecimeter_lang': {
+    'Squaredecimeter_lang': {
         'ru': 'Квадратный дециметр',
         'en': 'Square decimeter'
     },
@@ -218,6 +218,22 @@ const langHeaders = {
     'Year_lang': {
         'ru': 'Год',
         'en': 'Year'
+    },
+    'dark_lang': {
+        'ru': 'ТЕМНАЯ',
+        'en': 'DARK'
+    },
+    'light_lang': {
+        'ru': 'СВЕТЛАЯ',
+        'en': 'LIGHT'
+    },
+    'theme_lang': {
+        'ru': 'тема',
+        'en': 'theme'
+    },
+    'version_lang': {
+        'ru': 'Версия:',
+        'en': 'Version:'
     }
     
 }
@@ -231,7 +247,9 @@ const langPlaceholders = {
         'en': 'weight'
     }
 }
-window.localStorage.setItem('lang', 'ru');
+if(!window.localStorage.getItem('lang')) {
+    window.localStorage.setItem('lang', 'en');
+}
 function langHeadersSet() {
     for(let key in langHeaders) {
         document.querySelectorAll('.' +key).forEach(el => {

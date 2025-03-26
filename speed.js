@@ -1,20 +1,20 @@
 function count() {
     const conversions = {
-        'Meter/second': {
-            'Kilometer/hour': mps => mps * 3.6,
-            'Mile/hour': mps => mps * 2.2369362921
+        'Meterpersecond': {
+            'Kilometerperhour': mps => mps * 3.6,
+            'Mileperhour': mps => mps * 2.2369362921
         },
-        'Kilometer/hour': {
-            'Meter/second': kmh => kmh * 0.2777777778,
-            'Mile/hour': kmh => kmh * 0.6213711922
+        'Kilometerperhour': {
+            'Meterpersecond': kmh => kmh * 0.2777777778,
+            'Mileperhour': kmh => kmh * 0.6213711922
         },
-        'Mile/hour': {
-            'Meter/second': mph => mph * 0.44704,
-            'Kilometer/hour': mph => mph * 1.609344
+        'Mileperhour': {
+            'Meterpersecond': mph => mph * 0.44704,
+            'Kilometerperhour': mph => mph * 1.609344
         }
     };
-    const unitFrom = optionhone.innerText;
-    const unitTo = optionhtwo.innerText;
+    const unitFrom = optionhone.classList[1].substr(0, optionhone.classList[1].length-5);
+    const unitTo = optionhtwo.classList[1].substr(0, optionhtwo.classList[1].length-5);
     const inputValue = Number(optionone.value);
     if (unitFrom === unitTo) {
         optiontwo.value = inputValue;
